@@ -11,7 +11,7 @@ class NewsItem extends Component {
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{!description?"This news is intresting" : description}</p>
-            <a href={newsUrl} target="_blank" className="btn btn-sm btn-primary">
+            <a rel="noreferrer" href={newsUrl} target="_blank" className="btn btn-sm btn-dark">
               Read More
             </a> 
           </div>
@@ -19,7 +19,7 @@ class NewsItem extends Component {
       </div>
     );
   }
-}
+} 
 
 export default NewsItem;
 
@@ -28,3 +28,6 @@ export default NewsItem;
 // mtlb json me null mila toh ye image dedo
 // {!description?"This news is intresting" : description}
 // khali {description} bhi kaam kr rha tha but humne null wali condition yha bhi daal di.
+
+// <a rel="noreferrer" href={newsUrl} target="_blank" className="btn btn-sm btn-primary">
+// use  rel="noreferrer" for removing an error 

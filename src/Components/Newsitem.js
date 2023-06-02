@@ -15,11 +15,11 @@ class NewsItem extends Component {
               Read More
             </a> 
           </div>
-        </div> 
+        </div>  
       </div>
     );
   }
-} 
+}  
 
 export default NewsItem;
 

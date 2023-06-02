@@ -5,7 +5,7 @@ export class NavBar extends Component {
   static propTypes = {}
 
   render() {
-    return (
+    return ( 
       <div>
        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
        <div className="container-fluid">
@@ -25,7 +25,7 @@ export class NavBar extends Component {
         </div>
       </div>
     </nav>
-    </div>
+    </div> 
     )
   }
 }

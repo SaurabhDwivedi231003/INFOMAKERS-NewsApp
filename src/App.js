@@ -7,10 +7,12 @@ export default class App extends PureComponent {
     return (
       <div>
       <NavBar/>
-      <News/>
+      <News pageSize={6} country= 'in'/>  
 
       </div>
     )  
   }
 }
-  
+
+//pageSize={5}   ye props hain hain jo hum kahi b use kre iski value yhi rhegi , news section me use kiya h
+ 

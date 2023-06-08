@@ -6,7 +6,7 @@ class NewsItem extends Component {
 
     return (
       <div className="my-3">
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card" >
           <img src={!imageurl?"https://cdn.mos.cms.futurecdn.net/8CcjvEC3tfMRDn4upTxeuk-1200-80.jpg" : imageurl} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
@@ -18,7 +18,7 @@ class NewsItem extends Component {
         </div>  
       </div>
     );
-  }
+  } 
 }  
 
 export default NewsItem;

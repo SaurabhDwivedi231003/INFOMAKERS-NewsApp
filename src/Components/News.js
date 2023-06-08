@@ -5,6 +5,21 @@ import PropTypes from 'prop-types';  //impt for proptypes
 
 // Now we will use proptypes inside class , check documentation or do google 
 export class News extends Component {
+  // we will make static variable to write prop type
+
+   static defaultProps = {
+    country: 'in',
+    pageSize: 8 ,
+    category : 'general'
+  };
+
+  static propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category : PropTypes.string
+
+  };
+
     constructor(props) {
         super(props);
         console.log("Hello, I am a constructor from News Componenet");
@@ -16,7 +31,7 @@ export class News extends Component {
 
     }
     async componentDidMount() { 
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=1&pageSize=${this.props.pageSize}` ;   //pageSize=20 or this.props.pageSize mtlb ek page me keval 20 articles hi honge
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=1&pageSize=${this.props.pageSize}` ;   //pageSize=20 or this.props.pageSize mtlb ek page me keval 20 articles hi honge
         this.setState({loading:true});
 
         let data = await fetch(url);  /* promise return krega kuuki humne async use kiya h , mtlb iske execute hone ka wait krega */
@@ -33,7 +48,7 @@ export class News extends Component {
     handlePreviousClick = async () => {
 
         //neeche ka content cdm se uthaya h bass url ko backtick lgaye hain kuuki andr js logic likhna tha page next krn k liye 
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading:true});
         let data = await fetch(url);  /* promise return krega kuuki humne async use kiya h , mtlb iske execute hone ka wait krega */
         let parsedData = await data.json(); //data ko readale banane k liye k parse kro
@@ -50,7 +65,7 @@ export class News extends Component {
     handleNextClick = async () => {
         if(this.state.page + 1 >Math.ceil(this.state.totalResults/this.props.pageSize)){ }
         else{ 
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading:true});
         let data = await fetch(url);  /* promise return krega kuuki humne async use kiya h , mtlb iske execute hone ka wait krega */
         let parsedData = await data.json(); //data ko readale banane k liye k parse kro
@@ -67,7 +82,7 @@ export class News extends Component {
         console.log('render');
         return (
             <div className="container my-3"> 
-                <h1 className="text-center">NewsMonkey - Top Headlines</h1>
+                <h1 className="text-center"  style={{margin : '35px 0px'}}>NewsMonkey - Top Headlines</h1>
                 {this.state.loading && <Spinner/>}
                 <div className="row">
                 { /* Neeche ye krne ka mtlb jitne baar har baar ek naya article ayega click bgerh krne pe ye ek state h*/}
@@ -77,7 +92,7 @@ export class News extends Component {
                 {/* we used a state taki hum har news ko dikha ske aur element k sath jo b lga h wo json wali file me array k naam h dhyaan rkhna example : urlToimage*/}
                 {/* title , decription , imageurl , newsUrl ye sab wo state hain jo Newsitem me pass ki hain aur isdhar use kr rhe */}
                 {/* title , decription , urlToimage , url ye sab JSON k anar k array element hai jo hum use kr rhe*/}
-                </div>
+                </div> 
                 })} 
                 </div>
                 <div className="container d-flex justify-content-between">

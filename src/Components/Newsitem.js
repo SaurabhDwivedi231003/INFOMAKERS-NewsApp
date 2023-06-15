@@ -7,13 +7,13 @@ class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card" >
-        <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left:'90%' , zIndex:'1' }} >  {source} </span>
+        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left:'90%' , zIndex:'1' }} >  {source} </span>
           <img src={!imageurl?"https://cdn.mos.cms.futurecdn.net/8CcjvEC3tfMRDn4upTxeuk-1200-80.jpg" : imageurl} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{!description?"This news is intresting" : description}</p>
             <p className="card-text"> <small className="text-muted">By {!author?"Unknown":author} on {new Date(date).toGMTString()} </small> </p>
-            <a rel="noreferrer" href={newsUrl} target="_blank" className="btn btn-sm btn-dark">
+            <a rel="noreferrer" href={newsUrl} target="_blank" className="btn" style={{ color : '#EDF5F9', backgroundColor : '#1280C0'}}>
               Read More
             </a> 
           </div>

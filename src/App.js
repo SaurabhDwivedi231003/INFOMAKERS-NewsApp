@@ -8,7 +8,7 @@ export default class App extends PureComponent {
     return (
       <div> 
       <Router>
-      <NavBar/>
+      <NavBar/> 
       <Switch>
 
           <Route exact path="/"><News  key="general" pageSize={6} country= 'in' category='general'/> </Route>

@@ -30,6 +30,9 @@ export class News extends Component {
         }
 
     }
+
+    
+
     async componentDidMount() { 
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=733ef8b9aa1245a69a7f4c1c0d28ba78&page=1&pageSize=${this.props.pageSize}` ;   //pageSize=20 or this.props.pageSize mtlb ek page me keval 20 articles hi honge
         this.setState({loading:true});
@@ -86,12 +89,12 @@ export class News extends Component {
                 {this.state.loading && <Spinner/>}
                 <div className="row">
                 { /* Neeche ye krne ka mtlb jitne baar har baar ek naya article ayega click bgerh krne pe ye ek state h*/}
-                {!this.state.loading && this.state.articles.map((element)=>{    
+                {!this.state.loading && this.state.articles.map((element)=>{     
                  return <div className="col-md-4" key={element.url}  >
-                <Newsitem  title={element.title ? element.title: ""} description={element.description ? element.description: ""} imageurl={element.urlToImage} newsUrl= {element.url}/>  
+                <Newsitem  title={element.title ? element.title: ""} description={element.description ? element.description: ""} imageurl={element.urlToImage} newsUrl= {element.url} author={element.author} date={element.publishedAt}  source={element.source.name}/>  
                 {/* we used a state taki hum har news ko dikha ske aur element k sath jo b lga h wo json wali file me array k naam h dhyaan rkhna example : urlToimage*/}
-                {/* title , decription , imageurl , newsUrl ye sab wo state hain jo Newsitem me pass ki hain aur isdhar use kr rhe */}
-                {/* title , decription , urlToimage , url ye sab JSON k anar k array element hai jo hum use kr rhe*/}
+                {/* title , decription , imageurl , newsUrl ye sab wo state hain jo Newsitem me pass ki hain aur idhar use kr rhe */}
+                {/* title , decription , urlToimage , url ,author , ublishedAt ye sab JSON k andar k array element hai jo hum use kr rhe*/}
                 </div> 
                 })} 
                 </div>

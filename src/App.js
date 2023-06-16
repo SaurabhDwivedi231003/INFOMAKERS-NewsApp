@@ -4,7 +4,7 @@ import News from './Components/News';
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 
 export default class App extends PureComponent {
-    pageSize = 6;
+    pageSize = 50;
   render() {
     return (
       <div> 

@@ -33,7 +33,7 @@ const News = (props) => {
 
     useEffect(()=>{
       updateNews();
-      document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
+      document.title = `${capitalizeFirstLetter(props.category)} - InfoMakers`;
 
     } ,[])
     /* componentDidMount() : hamesha render() k baad execute hoga*/
@@ -60,7 +60,7 @@ const News = (props) => {
     return (
       <>
         <h1 className="text-center" style={{ margin: '35px 0px' , marginTop: '90px' }}>
-          NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
+          InfoMakers - Top {capitalizeFirstLetter(props.category)} Headlines
         </h1>
         {loading && <Spinner/>}
     

@@ -18,7 +18,7 @@ To run INFOMAKERS locally on your machine, follow these steps:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/INFOMAKERS.git
+   git clone https://github.com/SaurabhDwivedi231003/INFOMAKERS-NewsApp.git
 
 
 ### 2.Navigate to project director 
